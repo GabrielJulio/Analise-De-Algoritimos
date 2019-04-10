@@ -1,6 +1,9 @@
 from InsertSort import insert_sort
 from MergeSort import merge_sort
 from SelectionSort import selection_sort
+from BubbleSort import bubble_sort
+from ShellSort import shell_sort
+from CocktailSort import cocktail_sort
 import time
 
 # Abrindo o arquivo de texto com o nome especificado
@@ -19,8 +22,9 @@ for posicao in range(0, len(numeros)):
 
 # alg é o algoritmo escolhido
 alg = 0
-while alg == 1 or 2 or 3:
-    alg = int(input('Qual algoritmo você deseja utilizar?\n1 - Insert-Sort\n2 - Merge-Sort\n3 - Selection-Sort\n'))
+while alg == 1 or 2 or 3 or 4:
+    alg = int(input('Qual algoritmo você deseja utilizar?\n1 - Insert-Sort\n2 - Merge-Sort\n3 - Selection-Sort\n'
+                    '4 - Bubble-Sort\n5 - Shell-Sort\n6 - Cocktail-Sort'))
     if alg == 1:
         comeco = time.time()
         insert_sort(numeros)
@@ -38,6 +42,23 @@ while alg == 1 or 2 or 3:
         selection_sort(numeros)
         fim = time.time() - comeco
         alg = 'Selection-Sort'
+        break
+    elif alg == 4:
+        comeco = time.time()
+        bubble_sort(numeros)
+        fim = time.time() - comeco
+        alg = 'Bubble-Sort'
+        break
+    elif alg == 5:
+        comeco = time.time()
+        shell_sort(numeros)
+        fim = time.time() - comeco
+        alg = 'Shell-Sort'
+    elif alg == 6:
+        comeco = time.time()
+        cocktail_sort(numeros)
+        fim = time.time() - comeco
+        alg = 'Cocktail-Sort'
         break
     else:
         print('Você digitou uma opção incorreta, tente novamente')
